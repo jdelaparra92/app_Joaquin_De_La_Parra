@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.navContenedor{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(34, 58, 50);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.navContenedor a{
+    text-decoration: none;
+    padding: 10px 10px;
+    color: white;
+    transition: 0.6s;
+}
+
+.navContenedor a:hover{
+background-color: white;
+color:rgb(34, 58, 50); 
+}
+
+.navContenedor h3{
+    color: white;
+}
+
