@@ -32,3 +32,19 @@ color:rgb(0, 0, 0);
     width: 50px;
     height: auto;
 }
+
+.productos-contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    
+}
+
+.productos-contenedor div{
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+}
