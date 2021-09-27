@@ -1,5 +1,6 @@
+import ItemDetailContainer from "./components/DetalleItems/ItemDetailContainer"
 import NavBar from "./components/header/NavBar"
-import ItemListContainer from "./components/productos/ItemListContainer"
+import ItemListContainer from "./components/ListaItems/ItemListContainer"
 import "./css/styles.css"
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
         <>
         <NavBar/>
         <ItemListContainer greeting= "Hola soy el ItemListContainer"/>
+        <ItemDetailContainer/>
         </>
     )
 }

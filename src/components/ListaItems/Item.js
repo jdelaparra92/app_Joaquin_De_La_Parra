@@ -1,5 +1,5 @@
 import React from "react"
-import ItemCount from "./ItemCount"
+import ItemCount from "../productos/ItemCount"
 
 const onAdd = (cantidad) => {
     console.log(cantidad)
