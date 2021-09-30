@@ -12,14 +12,21 @@
     padding-bottom: 20px;
 }
 
-.navContenedor a{
+.navContenedor .linkk{
     text-decoration: none;
     padding: 10px 10px;
     color: white;
     transition: 0.6s;
 }
 
-.navContenedor a:hover{
+.navContenedor .link_logo{
+    text-decoration: none;
+    padding: 10px 10px;
+    color: white;
+    transition: 0.6s;
+}
+
+.navContenedor .linkk:hover{
 background-color: white;
 color:rgb(0, 0, 0); 
 }

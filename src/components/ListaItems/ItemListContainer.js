@@ -2,29 +2,40 @@ import ItemList from "./ItemList"
 import {useEffect} from "react"
 import {useState} from "react"
 import {u} from "../productos/ProductosLista"
+import { useParams } from "react-router-dom"
+
+
 const ItemListContainer = ({greeting}) => {
 
   const [itemsP,setItemsP] = useState([])
+  const parametros = useParams()
 
-
+console.log(parametros)
   useEffect(() => {
 
-    const operacion = new Promise((res,rej) => {
+
+    const operacion = new Promise((res) => {
   
         setTimeout(() => {
-          res(u)
-              
+
+          if(parametros.id){
+      
+            res(u.filter(product=>product.id == parametros.id))
+        }
+        else{
+            res(u)
+        } 
+
         }, 2000)
       
       })
       
-      operacion.then((itemsP) => setItemsP (u))
+      operacion.then((resultado) => {
+        setItemsP (resultado)
       
-      operacion.catch(() => {
-          console.log("termino todo mal!!! ;(")
           })
   
-  },[])
+  })
 
     
 
