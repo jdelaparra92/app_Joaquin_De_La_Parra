@@ -1,10 +1,13 @@
 import React from "react"
-
+import ItemCount from "../contador/ItemCount"
 
 
 const ItemDetail = ({itemsP}) => {
     console.log(itemsP)
-
+    const onAdd = (cantidad) => {
+        console.log("Recibi la cantidad de un componente hijo")
+        console.log(cantidad)
+    }
 return(
 
     <div>
@@ -12,6 +15,7 @@ return(
      <h3>{itemsP.price}</h3> 
      <h4>{itemsP.description}</h4>  
      <img className="carrito" src={itemsP.pictureUrl} alt=""></img>
+     <ItemCount stock={itemsP.stock} initial={itemsP.stock >= 1 ? 1 : 0} onAdd={onAdd}/>
     </div>
 
 )

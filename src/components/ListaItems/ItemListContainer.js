@@ -5,7 +5,7 @@ import {u} from "../productos/ProductosLista"
 import { useParams } from "react-router-dom"
 
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
 
   const [itemsP,setItemsP] = useState([])
   const parametros = useParams()
@@ -35,14 +35,14 @@ console.log(parametros)
       
           })
   
-  })
+        }, )
 
     
 
       return(
         <>  
           <div>
-          <p>{greeting}</p>
+
           </div>
           <ItemList itemsP={itemsP}/>
       </>  
