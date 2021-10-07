@@ -1,6 +1,7 @@
 import CartWidget from "./CartWidget"
 import { Link } from "react-router-dom"
 const NavBar = () => {
+
     return(
     <div className="navContenedor">
         <Link className="link_logo" to="/"><h3>Moodis E-Commerce</h3></Link>

@@ -1,13 +1,21 @@
 import React from "react"
 import ItemCount from "../contador/ItemCount"
+import { useContext } from "react"
+import contexto from "../provider/CartContext"
 
 
 const ItemDetail = ({itemsP}) => {
     console.log(itemsP)
+    const {addItem} = useContext(contexto)
+
+
     const onAdd = (cantidad) => {
         console.log("Recibi la cantidad de un componente hijo")
         console.log(cantidad)
+        addItem(itemsP,cantidad)
     }
+
+
 return(
 
     <div>

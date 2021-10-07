@@ -4,10 +4,13 @@ import ItemListContainer from "./components/ListaItems/ItemListContainer"
 import "./css/styles.css"
 import { BrowserRouter , Route , Switch} from "react-router-dom"
 import Cart from "./components/carritoCompras/Cart"
+import { CustomProvider } from "./components/provider/CartContext"
+
 const App = () => {
-    
+
     return(
         <BrowserRouter>
+        <CustomProvider>
         <NavBar/>
 
 
@@ -17,6 +20,7 @@ const App = () => {
         <Route path="/item/:id" component={ItemDetailContainer}/>
         <Route path="/cart" component={Cart}/>
     </Switch>
+    </CustomProvider>
         </BrowserRouter>
     )
 }

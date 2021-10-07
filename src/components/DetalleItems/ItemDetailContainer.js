@@ -1,10 +1,13 @@
 import ItemListDetail from "./ItemListDetail"
 import {useEffect} from "react"
 import {useState} from "react"
-import {u} from "../productos/ProductosLista"
 import { useParams } from "react-router-dom"
+import { useContext } from "react"
+import contexto from "../provider/CartContext"
 
 const ItemDetailContainer = () => {
+  const {productosCarrito} = useContext(contexto)
+  console.log(productosCarrito)
 
   const [itemsP,setItemsP] = useState([])
   const parametros2 = useParams()
@@ -16,10 +19,10 @@ const ItemDetailContainer = () => {
         setTimeout(() => {
           if(parametros2.id){
       
-            res(u.filter(product=>product.id == parametros2.id))
+            res(productosCarrito.filter(product=>product.id == parametros2.id))
         }
         else{
-            res(u)
+            res(productosCarrito)
         }
         }, 2000)
       
