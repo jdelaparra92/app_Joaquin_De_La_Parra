@@ -3,21 +3,22 @@ import {createContext,useState} from "react"
 const contexto = createContext()
 
 const {Provider} = contexto
-const prodCarrito = []
 
 export const CustomProvider = ({children}) => {
 
     const [carrito,setCarrito] = useState([])
+
+    
+
     const addItem = (itemsP,cantidad) => {
-
-
-            prodCarrito.push(itemsP,cantidad)
+            
+            carrito.push(itemsP,cantidad)
             console.log("cantidad de productos guardados en el carrito")
-            console.log(prodCarrito)
+            console.log(carrito)
+
         
-
-
     }  
+
 
 
 

@@ -4,41 +4,69 @@ import {useState} from "react"
 import { useParams } from "react-router-dom"
 import { useContext } from "react"
 import contexto from "../provider/CartContext"
-
+import { firestore } from "../../firebase"
 
 const ItemListContainer = () => {
-  const {productosCarrito} = useContext(contexto)
-  console.log(productosCarrito)
+
 
   const [itemsP,setItemsP] = useState([])
+  const [itemsFinal,setItemsFinal] = useState([])
   const parametros = useParams()
 
 console.log(parametros)
   useEffect(() => {
+    
+    const db = firestore
+    const coleccion = db.collection("productosLista")
 
 
-    const operacion = new Promise((res) => {
+
+    const consulta = coleccion.get()
+
+
+    
+    consulta
+          .then((resultado) => {
+
+           resultado.docs.forEach(prod =>{
+
+            const productos_final = {
+              id: prod.id,
+              ...prod.data()
+            }
+            setItemsFinal(itemsFinal.push(productos_final))
+            console.log("productos final")
+            console.log(productos_final)
+            console.log(itemsFinal)
+
+
+
+           })
+
+
+           if(parametros.id){
+      
+            setItemsP(itemsFinal.filter(product=>product.id == parametros.id))        
+          }
+           else{
+            setItemsP(itemsFinal)
+        
+          } 
+    
+           })
+
+
+
+           .catch(() => {
+            console.log("salio todo mal ;(")
+     
+            })
+
+
+      
+
   
-        setTimeout(() => {
-
-          if(parametros.id){
-      
-            res(productosCarrito.filter(product=>product.id == parametros.id))
-        }
-        else{
-            res(productosCarrito)
-        } 
-
-        }, 2000)
-      
-      })
-      
-      operacion.then((resultado) => {
-        setItemsP (resultado)
-      
-          })
-  
-        }, )
+        })
 
     
 
