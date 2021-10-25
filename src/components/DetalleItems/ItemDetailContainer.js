@@ -4,7 +4,7 @@ import {useState} from "react"
 import { useParams } from "react-router-dom"
 import { useContext } from "react"
 import contexto from "../provider/CartContext"
-import { firestore } from "../../firebase"
+import { firestore } from "../../services/firebase"
 
 const ItemDetailContainer = () => {
 
@@ -18,9 +18,6 @@ console.log(parametros2)
     
     const db = firestore
     const coleccion = db.collection("productosLista")
-
-
-
     const consulta = coleccion.get()
 
 
@@ -35,21 +32,16 @@ console.log(parametros2)
               ...prod.data()
             }
             setItemsFinal(itemsFinal.push(productos_final))
-            console.log("productos final")
-            console.log(productos_final)
-            console.log(itemsFinal)
-
-
 
            })
 
 
            if(parametros2.id){
       
-            setItemsP(itemsFinal.filter(product=>product.id == parametros2.id))
+              setItemsP(itemsFinal.filter(product=>product.id == parametros2.id))
         }
-        else{
-          setItemsP(itemsFinal)
+           else{
+             setItemsP(itemsFinal)
         } 
     
            })

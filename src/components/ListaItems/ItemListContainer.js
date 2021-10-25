@@ -4,7 +4,7 @@ import {useState} from "react"
 import { useParams } from "react-router-dom"
 import { useContext } from "react"
 import contexto from "../provider/CartContext"
-import { firestore } from "../../firebase"
+import { firestore } from "../../services/firebase"
 
 const ItemListContainer = () => {
 
@@ -13,7 +13,6 @@ const ItemListContainer = () => {
   const [itemsFinal,setItemsFinal] = useState([])
   const parametros = useParams()
 
-console.log(parametros)
   useEffect(() => {
     
     const db = firestore
@@ -35,10 +34,6 @@ console.log(parametros)
               ...prod.data()
             }
             setItemsFinal(itemsFinal.push(productos_final))
-            console.log("productos final")
-            console.log(productos_final)
-            console.log(itemsFinal)
-
 
 
            })
@@ -66,7 +61,7 @@ console.log(parametros)
       
 
   
-        })
+        },[])
 
     
 
