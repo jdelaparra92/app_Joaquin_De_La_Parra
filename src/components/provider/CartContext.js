@@ -16,6 +16,8 @@ export const CustomProvider = ({children}) => {
     const [carritoCantidad,setCarritoCantidad] = useState([0])
 
     const [cantProd,setCantProd] = useState([])
+
+    const [repetirItem,setRepetirItem] = useState(0)
     
     const reducer = (previousValue, currentValue) => previousValue + currentValue
     
@@ -23,12 +25,16 @@ export const CustomProvider = ({children}) => {
         setCarrito(carrito.filter((product, i) => i !== index));
         console.log(carrito)
       }
+
       const eliminarCarrito = () => {
         setCantProd ([])
         setCarrito ([])
         setCarritoCantidad ([])
          }
 
+
+
+         
          const orden = () => {
            
 
@@ -64,25 +70,67 @@ export const CustomProvider = ({children}) => {
 
     const addItem = (itemsP,cantidad) => {
 
-                const productosMasCantidad = {
-                    cantidad: cantidad,
-                    ...itemsP
-                  }
-                  
-      
-                  carrito.push(productosMasCantidad)
-                  carritoCantidad.push(cantidad)
-      
-                   
-      
-                  setCantProd(carritoCantidad.reduce(reducer))
+    let flag = 0
+
+     if (carrito.length === 0) {
+
+        const productosMasCantidad = {
+            cantidad: cantidad,
+            ...itemsP
+        }
+        
+        carrito.push(productosMasCantidad)
+        carritoCantidad.push(cantidad)
+        
     
 
-            
+        setCantProd(carritoCantidad.reduce(reducer))
         
+        
+     }else{
+        carrito.map (carrito=>{
+            if (carrito.id == itemsP.id) {
+            carrito.cantidad = carrito.cantidad + cantidad
+            carritoCantidad.push(cantidad)
+            setCantProd(carritoCantidad.reduce(reducer))
+            flag = 1
+              
+            }
+
+
+      })
+
+      if (flag === 0) {
+          console.log("entra al if de repetir")
+        const productosMasCantidad = {
+            cantidad: cantidad,
+            ...itemsP
+        }
+        
+        carrito.push(productosMasCantidad)
+        carritoCantidad.push(cantidad)
+        
+        
+
+        setCantProd(carritoCantidad.reduce(reducer))
+        
+          
+      }
+
+     }
+
+
+  
+     console.log("flag")
+     console.log(flag) 
+
+          
     }  
+
+
     console.log("cantidad de productos totales")
     console.log(cantProd)
+    
 
 
 
