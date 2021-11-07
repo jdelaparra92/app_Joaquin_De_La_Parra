@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+.titulo1{
+    text-align: center;
+    margin: 35px 0;
+}
+
 .navContenedor{
     display: flex;
     justify-content: space-evenly;
@@ -58,6 +63,9 @@ color:rgb(0, 0, 0);
 
 .elementoCarrito{
 margin: 40px;
+border-radius: 10px;
+background-color: #f5f6f6;
+padding: 30px;
 
 }
 
@@ -70,3 +78,4 @@ margin: 40px;
 .contBoton{
     text-align: center;
 }
+

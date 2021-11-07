@@ -34,7 +34,7 @@ const ConfirmarCompra = () => {
     return(
         <>
           <p>Stock: {stock}</p>
-          <p>Contador: {contador}</p>
+          <p>Cantidad: {contador}</p>
           <button onClick={SumarContador}>Contador +</button>    
           <button onClick={RestarContador}>Contador -</button>  
           <Link to="/cart"><button onClick={ConfirmarCompra}>Agregar al Carrito</button></Link>

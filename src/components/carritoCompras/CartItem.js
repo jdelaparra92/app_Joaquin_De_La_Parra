@@ -17,7 +17,7 @@ return(
 
         <div>
      <h2>Nombre: {carrito.title}</h2>
-     <h3>Precio: {carrito.price}</h3> 
+     <h3>Precio: {carrito.price}$</h3> 
      <h4>Descripción: {carrito.description}</h4>  
      <img className="carrito" src={carrito.pictureUrl} alt=""></img>
      <h5>la cantidad del item elegido es de:{carrito.cantidad}</h5>

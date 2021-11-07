@@ -5,7 +5,6 @@ const ItemListDetail = ({itemsP}) => {
 
     return(
         <section className="productos-contenedor">
-        
             {itemsP.map (itemsP=>{
 
                 return <ItemDetail key={itemsP.id} itemsP={itemsP}/>

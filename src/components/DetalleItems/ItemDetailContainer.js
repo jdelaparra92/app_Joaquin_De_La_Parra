@@ -11,9 +11,9 @@ const ItemDetailContainer = () => {
 
   const [itemsP,setItemsP] = useState([])
   const [itemsFinal,setItemsFinal] = useState([])
-  const parametros2 = useParams()
+  const parametros = useParams()
 
-console.log(parametros2)
+
   useEffect(() => {
     
     const db = firestore
@@ -36,9 +36,9 @@ console.log(parametros2)
            })
 
 
-           if(parametros2.id){
+           if(parametros.id){
       
-              setItemsP(itemsFinal.filter(product=>product.id == parametros2.id))
+              setItemsP(itemsFinal.filter(product=>product.id == parametros.id))
         }
            else{
              setItemsP(itemsFinal)

@@ -14,12 +14,12 @@ const App = () => {
         <NavBar/>
 
 
-    <Switch>
+
         <Route path="/" component={ItemListContainer} exact/>
-        <Route path="/cate/:id" component={ItemListContainer}/>
+        <Route path="/cate/:id" component={ItemListContainer} />
         <Route path="/item/:id" component={ItemDetailContainer}/>
         <Route path="/cart" component={Cart}/>
-    </Switch>
+
     </CustomProvider>
         </BrowserRouter>
     )
