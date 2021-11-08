@@ -7,7 +7,8 @@ const Item = ({items}) => {
 return(
 
     <div>
-     <h2>{items.title}</h2> 
+     <h2>{items.title}</h2>
+     <br></br> 
 
       <button>
       <Link to={`/item/${items.id}`}>ver detalle</Link>

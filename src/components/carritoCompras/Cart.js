@@ -3,15 +3,14 @@ import React, { useState, useEffect } from "react"
 import contexto from "../provider/CartContext"
 import CartItem from "./CartItem"
 import { Link } from "react-router-dom"
-import { firestore } from "../../services/firebase"
-import firebase from "firebase/app"
+
 
 import "firebase/firestore"
 
 
 const Cart = () =>{
 
-    const {carrito, cantProd, eliminarCarrito, orden, numeroCompra} = useContext(contexto)
+    const {carrito, eliminarCarrito, orden, numeroCompra} = useContext(contexto)
     const [totalPrice, setTotalPrice] = useState(0);
 
 
@@ -21,9 +20,9 @@ const Cart = () =>{
 
     const mensaje = (
         <div>
-          <div>Ops!</div>
+          <div>No se encontraron elementos!</div>
           <div >
-            <h5 >¡Tu carrito está vacío!</h5>
+            <h2 >¡Tu carrito está vacío!</h2>
 
             <Link to="/">Ir a comprar</Link>
           </div>
@@ -63,10 +62,11 @@ const Cart = () =>{
         </div>
         )}
         <h5 >Total: ${totalPrice}</h5>
-        <h5 >Numero de pedido: {numeroCompra}</h5>
+        <br></br>
+        <br></br>
 
         <Link to="/cart"><button onClick={eliminarCarrito}>Eliminar carrito</button></Link> 
-        <Link to="/cart"><button onClick={orden}>Confirmar Carrito</button></Link>  
+        <Link to="/CartConfirmacion"><button onClick={orden}>Confirmar Carrito</button></Link>  
         </div>
     )
 

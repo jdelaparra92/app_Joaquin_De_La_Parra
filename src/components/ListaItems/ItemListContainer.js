@@ -2,8 +2,6 @@ import ItemList from "./ItemList"
 import {useEffect} from "react"
 import {useState} from "react"
 import { useParams } from "react-router-dom"
-import { useContext } from "react"
-import contexto from "../provider/CartContext"
 import { firestore } from "../../services/firebase"
 
 const ItemListContainer = () => {

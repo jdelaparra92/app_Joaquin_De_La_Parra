@@ -17,9 +17,7 @@ export const CustomProvider = ({children}) => {
     const [carritoCantidad,setCarritoCantidad] = useState([0])
 
     const [cantProd,setCantProd] = useState([])
-
-    const [repetirItem,setRepetirItem] = useState(0)
-    
+  
     const reducer = (previousValue, currentValue) => previousValue + currentValue
     
     const deleteProduct = (index) => {
